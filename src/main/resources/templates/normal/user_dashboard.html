@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::layout1(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Index</title>
+</head>
+<body>
+	
+<section>
+	
+	<div class="container homepage">
+		<div class="card" style="background-color: silver;">
+		<div class="card-body">
+		<div class="container text-center" >
+		<img class="home_image" style="height: 150px" width="150px" alt="no-image" th:src="@{'/image/homeimage.jpg'}">
+		<h2>Home Page</h2>
+		</div>
+		</div>
+		</div>
+			<div class="container text-center">
+			<h2 style="color:white;" class="mt-5">You Can Add Your Contact's From Here!!</h2>
+			<div>
+			<i class="fa-solid fa-arrow-down" style="color: white;"></i>
+			</div>
+			<a th:href="@{/user/add_contact}" class="btn btn-primary mt-2">Add Contact</a>
+		</div>
+	</div>
+	</section>
+</body>
+</html>

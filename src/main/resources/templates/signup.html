@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<section class="vh-100 gradient-custom">
+		<div class="container py-5 h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+					<div class="card bg-dark text-white" style="border-radius: 1rem;">
+						<div class="card-body p-5 text-center">
+	
+	<h1 class="text-center">Registration Form</h1>
+	
+	<form novalidate="novalidate" th:action="@{/do_register}" method="post" th:object="${user}">
+	
+  <div class="form-group">
+    <label for="name">Enter Your Name</label>
+    <input type="text" class="form-control" id="name" name="name"  th:value="${user.name}" th:classappend="${#fields.hasErrors('name') ?'is-invalid' :''}" aria-describedby="emailHelp" placeholder="Enter Your Name">
+     
+  </div>
+  
+  <div class="form-group">
+    <label for="email">Enter Your Email</label>
+    <input type="text" class="form-control" id="email" name="email" th:value="${user.email}" th:classappend="${#fields.hasErrors('email') ? 'is-invalid' :''}" placeholder="Enter Your Email">
+     <div class="invalid-feedback" th:text="${#fields.errors('email')}"  >
+      
+      </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="pass">Enter Your Password</label>
+    <input type="password" class="form-control" id="pass" name="password" placeholder="Enter Your Password" th:classappend="${#fields.hasErrors('password')? 'is-invalid' :''}">
+      <div class="invalid-feedback" th:text="${#fields.errors('password')}"  >
+      
+      </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="about">Enter About Yourself</label>
+    <textarea rows="8" id="about" name="about" th:value="${user.about}" class="form-control"></textarea>
+  </div>
+  
+  
+  <div class="form-group form-check">
+    <input type="checkbox" class="form-check-input" name="agreement" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Agree to Terms & Condition</label><br>
+    <span th:text="${Message}" style="color: red;"></span>
+  </div>
+  
+  <div class="text-center mt-1">
+  <button type="submit" class="btn btn-primary">Submit</button>
+   <button type="reset" class="btn btn-warning">Reset</button>
+    </div>
+    
+</form>
+	
+	</div>
+	</div>
+	</div>
+	</div>
+	</div>
+	</section>
+</body>
+
+</body>
+</html>

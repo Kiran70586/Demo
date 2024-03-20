@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::layout1(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>add contact</title>
+</head>
+<body>
+	
+<section>
+	
+	<section class="vh-100 gradient-custom">
+		<div class="container py-5 h-100">
+			<div class="row d-flex justify-content-center align-items-center h-100">
+				<div class="col-12 col-md-8 col-lg-6 col-xl-5">
+					<div class="card bg-dark text-white">
+						<div class="card-body p-5 text-center">
+	
+	<h1 class="text-center">Add Contact</h1>
+	
+	<form novalidate="novalidate" th:action="@{/user/process}" method="post" th:object="${contact}" enctype="multipart/form-data">
+	
+  <div class="form-group">
+    <label for="name">Enter Your Name</label>
+    <input type="text" class="form-control" id="name" name="name"  th:value="${contact.name}" th:classappend="${#fields.hasErrors('name') ?'is-invalid' :''}" aria-describedby="emailHelp" placeholder="Enter Your Name">
+     <div class="invalid-feedback" th:each="e : ${#fields.errors('name')}" th:text="${e}" ></div>
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Enter Your Second Name</label>
+    <input type="text" class="form-control" id="secondName" name="secondName"  th:value="${contact.secondName}" th:classappend="${#fields.hasErrors('secondName') ?'is-invalid' :''}"  placeholder="Enter Your secondName">
+     <div class="invalid-feedback" th:each="e : ${#fields.errors('secondName')}" th:text="${e}" ></div>
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Enter Your work</label>
+    <input type="text" class="form-control" id="work" name="work"  th:value="${contact.work}" th:classappend="${#fields.hasErrors('work') ?'is-invalid' :''}"  placeholder="Enter Your work">
+     <div class="invalid-feedback" th:each="e : ${#fields.errors('work')}" th:text="${e}" ></div>
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Enter Your email</label>
+    <input type="email" class="form-control" id="email" name="email"  th:value="${contact.email}" th:classappend="${#fields.hasErrors('email') ?'is-invalid' :''}" aria-describedby="emailHelp" placeholder="Enter Your email">
+     <div class="invalid-feedback" th:each="e : ${#fields.errors('email')}" th:text="${e}" ></div>
+  </div>
+  
+  <div class="form-group">
+    <label for="name">Enter Your phone</label>
+    <input type="text" class="form-control" id="phone" name="phone"  th:value="${contact.phone}" th:classappend="${#fields.hasErrors('phone') ?'is-invalid' :''}"  placeholder="Enter Your phone">
+     <div class="invalid-feedback" th:each="e : ${#fields.errors('phone')}" th:text="${e}" ></div>
+  </div>
+  
+  <div class="form-group">
+    <label for="about">Enter Your description</label>
+    <textarea rows="8" id="description" name="description" th:value="${contact.description}" class="form-control"></textarea>
+  </div>
+  
+  <div class="d-flex justify-content-start">
+  <div class="custome-file p-2">
+  <input type="file" name="profileImage" >
+  </div>
+   </div>
+  <div class="text-center mt-1">
+  <button type="submit" class="btn btn-primary">Submit</button>
+   <button type="reset" class="btn btn-warning">Reset</button>
+    </div>
+  
+  </form>
+    </div>
+    </div>
+      </div>
+        </div>
+          </div>
+          </section>
+
+	</section>
+</body>
+</html>

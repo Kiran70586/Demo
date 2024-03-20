@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{normal/base::layout1(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Index</title>
+</head>
+<body>
+
+<section class="vh-100" style="background-color: #f4f5f7;">
+  <div class="container tt py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-lg-7 mb-5 mb-lg-0">
+        <div class="card mb-5" th:if="${contact}" style="border-radius: .5rem;">
+          <div class="row g-0">
+         
+            <div class="col-md-4  gradient-custom1 text-center text-white"
+              style="border-top-left-radius: .5rem; border-bottom-left-radius: .5rem;">
+              <img src="#" th:src="@{'/image/'+${contact.image}}"
+                alt="Avatar" class="img-fluid my-5" style="width: 80px;" />
+              <h5 th:text="${contact.name}"></h5>
+              <h6 th:text="${contact.secondName}"></h6>
+              <i class="fa-solid fa-trash mb-5 mt-2"  th:onclick="|delete1(${contact.cId})|"></i>
+                 <div class="d-flex justify-content-center">
+                  <a href="#!"><i class="fab fa-facebook-f fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-twitter fa-lg me-3"></i></a>
+                  <a href="#!"><i class="fab fa-instagram fa-lg"></i></a>
+                </div>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body p-4">
+                <h6>Information</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Email</h6>
+                    <p class="text-muted" th:text="${contact.email}"></p>
+                  </div>
+                  <div class="col-6 mb-3">
+                    <h6>Phone</h6>
+                    <p class="text-muted" th:text="${contact.phone}"></p>
+                  </div>
+                </div>
+                <h6>More Information</h6>
+                <hr class="mt-0 mb-4">
+                <div class="row pt-1">
+                  <div class="col-6 mb-3">
+                    <h6>Work</h6>
+                    <p class="text-muted" th:text="${contact.work}"></p>
+                  </div>
+                
+                </div>
+             
+                
+                 <section class="p-4 p-md-5 text-center text-lg-start shadow-1-strong rounded" style="
+    background-image: url(https://mdbcdn.b-cdn.net/img/Photos/Others/background2.webp);
+  ">
+  <div class="row d-flex justify-content-center">
+    <div class="col-md-10">
+      <div class="card">
+        <div class="card-body m-3">
+          <div class="row">
+            <div class="col-lg-4 d-flex justify-content-center align-items-center mb-4 mb-lg-0">
+              <img src="#"  th:src="@{'/image/'+${contact.image}}"
+                class="rounded-circle" alt="woman avatar" width="200" height="200" />
+            </div>
+            <div class="col-lg-8">
+              <p class="text-muted fw-light mb-4" th:text="${contact.description}">
+               
+              </p>
+              <p class="fw-bold lead mb-2"><strong th:text="${contact.name}" ></strong></p>
+              <p class="fw-bold text-muted mb-0"><strong th:text="${contact.work}"></strong></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+              </div>
+            </div>
+          </div>
+        </div>
+         <h1 th:unless="${contact}" style="color: red;">You Don't Have Permission To See This Contact</h1>
+       
+      </div>
+    </div>
+  </div>
+  
+ 
+</section>
+
+</body>
+</html>
